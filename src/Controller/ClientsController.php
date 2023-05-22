@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Locomotif\Clients\Models\Clients;
 use Locomotif\Media\Controller\MediaController;
+use Locomotif\Admin\Models\Users;
 
 class ClientsController extends Controller
 {
@@ -45,6 +46,12 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
+
+        //create new user
+        $user = Users::create(['name' => $request->name,'email' => $request->email]);
+        //set the role for the user
+        setUserRole('client', $user->id);
+
         $request->validate([
             'name'    => 'required',
             'surname' => 'required',
@@ -55,6 +62,7 @@ class ClientsController extends Controller
         $client = new Clients();
 
         $client->name         = $request->name;
+        $client->user_id      = $user->id;
         $client->surname      = $request->surname;
         $client->email        = $request->email;
         $client->phone        = $request->phone;
