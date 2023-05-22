@@ -1,0 +1,26 @@
+{
+    "name": "locomotif/clients",
+    "description": "Clients module for Masara",
+    "type": "module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Popa Alexandru",
+            "email": "p.alexandruadrian@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Locomotif\\Clients\\ClientsServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+       "psr-4": {
+           "Locomotif\\Clients\\": "src/"
+        }
+    }
+}
