@@ -24,6 +24,7 @@ class CreateClientsTable extends Migration
             $table->string('description',       255);
             $table->integer('ordering'             )->length(10)->unsigned()->nullable();
             $table->enum('status', array('hidden', 'published', 'pending'));
+            $table->boolean('is_company')->default(false);
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
