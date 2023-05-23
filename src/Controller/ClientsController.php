@@ -138,6 +138,6 @@ class ClientsController extends Controller
      */
     public function destroy(Clients $clients)
     {
-        //
+        echo '<pre>';print_r('E blocata functionalitate de a sterge');exit;
     }
 }
